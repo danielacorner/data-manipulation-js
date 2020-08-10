@@ -31,10 +31,12 @@ button.addEventListener("click", () => objectOfACat.attack());
 // TODO: type {} and hit Enter
 // TODO: click them open and check out the [].__proto__ and {}.__proto__
 
-// * Array methods: map, filter, sort
+// * Array methods: map, filter, sort, find, findIndex
 // map
 // filter
 // sort
+// find
+// findIndex
 
 // * {...spread} and {...rest}
 // {hi: "hey", wat: "what", details: { color: "blue", size: "small" }}
@@ -51,3 +53,6 @@ button.addEventListener("click", () => objectOfACat.attack());
 // TODO: turn arrays into objects with a for loop
 
 // TODO: turn objects into arrays with a for loop
+
+// BONUS: [...Array(N).keys()].map(i => ({ id: i })),
+// BONUS: [...Array(N)].map((_, i) => ({ id: i })),
