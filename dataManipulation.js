@@ -1,3 +1,9 @@
+// * how to find all Object and Array methods:
+// in the browser Developer Tools -> Console tab,
+// type [] and hit Enter
+// type {} and hit Enter
+// click the expansion triangle open and open the [].__proto__ and {}.__proto__
+
 // some arrays
 const arrayOfStrings = ["hello!", "how are you today?", "🐻🐼🐨"];
 
@@ -28,6 +34,22 @@ mutableString = "hello";
 
 const immutableString = "can't change me";
 // immutableString = "compiler error"
+
+//
+//
+//
+//
+//
+//
+//
+// * Array methods
+//
+//
+//
+//
+//
+//
+//
 
 //
 //
@@ -91,11 +113,14 @@ const indexOfTheNumber4 = arrayOfNumbers.findIndex(function (number) {
 // join array into string,
 // split string into array
 
+// * join
 const anotherLongString = arrayOfStrings.join("---");
+// * split
 const myOriginalArray = anotherLongString.split("---");
 
 // combine with map for complex operations
 
+// * join and split
 const stringsArrayUppercased = arrayOfStrings
   .join(",") // join into one string with commas
   .split("") // split into array of letters
@@ -106,17 +131,12 @@ const stringsArrayUppercased = arrayOfStrings
 //
 //
 //
-// * how to find all Object and Array methods:
-// in the browser Developer Tools -> Console tab,
-// type [] and hit Enter
-// type {} and hit Enter
-// click the expansion triangle open and open the [].__proto__ and {}.__proto__
-
-//
-//
 //
 // * {...spread} and {...rest}
-// {hi: "hey", wat: "what", details: { color: "blue", size: "small" }}
+//
+//
+//
+//
 
 // * spread
 // take an array or object and "flatten" it out into another array or object
@@ -162,6 +182,19 @@ window.addEventListener("click", function (...rest) {
 //
 //
 //
+//
+//
+//
+//
+// * Object methods
+//
+//
+//
+//
+//
+//
+//
+
 // * Object methods: Object.keys, Object,values, Object.entries
 // turn objects into arrays with: Object.keys, Object,values, Object.entries
 
@@ -172,7 +205,21 @@ const values = Object.values(objectOfACat); // [4, "fluffykins", function () { c
 // array of [key, value] arrays
 const entries = Object.entries(objectOfACat); // [["legs",4], ["name": "fluffykins"], ["attack", function () { console.log(`${this.name} attacks for ${this.legs} damage!`)}]]
 
+//
+//
+//
+//
+//
+//
+//
 // * Array methods: reduce
+//
+//
+//
+//
+//
+//
+
 // reduce is the most flexible array method;
 // it can perform any of the other array methods, or a combination, and more
 
@@ -219,7 +266,7 @@ const arrayOfPrimes = [...Array(100)]
   .filter((num) => getIsPrime(num));
 console.log("🌟🚨: arrayOfPrimes", arrayOfPrimes);
 
-// source: https://www.w3resource.com/javascript-exercises/javascript-function-exercise-8.php
+// copied from https://www.w3resource.com/javascript-exercises/javascript-function-exercise-8.php
 function getIsPrime(n) {
   if (n === 1) {
     return false;
@@ -235,7 +282,46 @@ function getIsPrime(n) {
   }
 }
 
-const App = () => <div>Hello React</div>;
+//
+//
+//
+//
+//
+//
+// React
+//
+//
+//
+//
+//
+//
+
+const App = function () {
+  const [users, setUsers] = React.useState([]);
+  const [posts, setPosts] = React.useState([]);
+
+  // when the component mounts,
+  // fetch some fake data
+  React.useEffect(function () {
+    const fakeUsers = fetch("http://jsonplaceholder.typicode.com/users")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        setUsers(data);
+      });
+
+    const fakePosts = fetch("http://jsonplaceholder.typicode.com/posts")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        setPosts(data);
+      });
+  }, []);
+
+  return <div>Hello React</div>;
+};
 
 // render App in the element with id="root"
 const rootElement = document.querySelector("#root");
